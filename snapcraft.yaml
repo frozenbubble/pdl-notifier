@@ -1,0 +1,23 @@
+name: pdl-notify
+version: 0.0.1
+summary: pdl
+description: >
+  Woo hoo
+
+confinement: devmode
+
+parts:
+  pdl-notify:
+    plugin: python
+#    python-version: python3
+    python-packages:
+      - beautifulsoup4
+      - pgi
+      - bs4
+    source: .
+    stage-packages: [python3-gi, gir1.2-notify-0.7]
+
+apps:
+  pdl-notify:
+    plugs: [desktop, home, x11, dbus]
+    command: pdl-notify
